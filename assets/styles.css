@@ -67,3 +67,6 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 @media(min-width:761px){
   .mobile-nav{display:none!important}
 }
+
+/* Keep the RecruitHelper artwork heading in frame when the card crops it. */
+.recruithelper-art img{object-position:top}

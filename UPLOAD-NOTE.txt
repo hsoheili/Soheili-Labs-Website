@@ -1,0 +1,10 @@
+Soheili Labs — RPG MasterTool polished update
+
+Upload the contents of this ZIP to the soheililabs.com document root, replacing existing files.
+
+Updated:
+- RPG MasterTool artwork/card on Home and Products
+- RPG logo/title crop fixed
+- RPG card centered when it is the lone item in the final two-column row
+- Existing LinguaFlow and RecruitHelper updates preserved
+- Stylesheet cache version bumped so browsers load the new layout immediately

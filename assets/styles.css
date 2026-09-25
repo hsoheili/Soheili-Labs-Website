@@ -111,3 +111,6 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
   .products-page-grid-section{padding-top:30px}
   .products-wrap{padding-left:18px;padding-right:18px}
 }
+
+/* Status badges size to their label, not the card (the card body is a flex column). */
+.product-card .card-body > .status{align-self:flex-start}

@@ -11,6 +11,9 @@
 #                            account whose home is the site root. Use
 #                            public_html/ for the main cPanel account.
 #
+# Pull requests into main run a dry run: they connect with the same
+# credentials and list what merging would upload, without uploading it.
+#
 # Only files that changed since the last deploy are uploaded; the list of
 # what was deployed is kept on the server in .ftp-deploy-sync-state.json.
 # Files on the server that this workflow never uploaded are left alone.
@@ -18,6 +21,8 @@ name: Deploy to soheililabs.com
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
     inputs:
@@ -27,7 +32,7 @@ on:
         default: true
 
 concurrency:
-  group: deploy-production
+  group: deploy-${{ github.event_name == 'pull_request' && github.ref || 'production' }}
   cancel-in-progress: false
 
 permissions:
@@ -63,7 +68,7 @@ jobs:
           protocol: ftps
           local-dir: ./
           server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
-          dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+          dry-run: ${{ github.event_name == 'pull_request' || (github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
           exclude: |
             **/.git*
             **/.git*/**

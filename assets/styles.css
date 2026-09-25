@@ -117,3 +117,4 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 
 /* Founding-program link: its own line under a live product's buttons. */
 .card-actions .founding-link{flex-basis:100%;font-size:.95em}
+.price-note{margin:.25rem 0 .5rem;font-size:.95em}.price-note strong{font-size:1.1em}

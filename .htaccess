@@ -3,3 +3,6 @@ RewriteEngine On
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
 
+# The Live Interpreter page was retired; the product is LinguaFlow.
+# NE keeps the "#" from being escaped so the browser lands on its card.
+RewriteRule ^interpreter\.html$ /products.html#linguaflow [R=301,L,NE]

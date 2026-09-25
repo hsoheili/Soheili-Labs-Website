@@ -1,10 +1,8 @@
-Soheili Labs — RPG MasterTool polished update
+Soheili Labs — About and Privacy update (September 25, 2026)
 
-Upload the contents of this ZIP to the soheililabs.com document root, replacing existing files.
+This repository matches the live site as of Sept 8 plus the changes
+below. Only these two pages changed; uploading just them is enough:
 
-Updated:
-- RPG MasterTool artwork/card on Home and Products
-- RPG logo/title crop fixed
-- RPG card centered when it is the lone item in the final two-column row
-- Existing LinguaFlow and RecruitHelper updates preserved
-- Stylesheet cache version bumped so browsers load the new layout immediately
+- about.html   — lists the full product lineup
+- privacy.html — drafting notes removed, AgencyOS privacy policy linked,
+                 in-development products covered, date refreshed

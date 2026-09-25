@@ -1,0 +1,5 @@
+# Keep the Soheili Labs home URL clean
+RewriteEngine On
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+

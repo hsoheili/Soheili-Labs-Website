@@ -1,0 +1,14 @@
+Soheili Labs — content and consistency update (September 24, 2026)
+
+Upload every file in this repository to the soheililabs.com
+document root, replacing existing files. Include the three new images:
+assets/soheili-labs-product-ecosystem.webp, assets/recruithelper-product-card.webp,
+and assets/clipkeep-brand.webp.
+
+Updated:
+- ClipKeep shown as Private preview on every page (Products page said Live)
+- About page lists the full product lineup
+- Privacy page: drafting notes removed, AgencyOS privacy policy linked,
+  in-development products covered, last-updated date refreshed
+- RecruitHelper card artwork no longer crops off its logo and heading
+- Stylesheet cache version bumped so browsers load the new layout immediately

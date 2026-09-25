@@ -1,14 +1,10 @@
-Soheili Labs — content and consistency update (September 24, 2026)
+Soheili Labs — RPG MasterTool polished update
 
-Upload every file in this repository to the soheililabs.com
-document root, replacing existing files. Include the three new images:
-assets/soheili-labs-product-ecosystem.webp, assets/recruithelper-product-card.webp,
-and assets/clipkeep-brand.webp.
+Upload the contents of this ZIP to the soheililabs.com document root, replacing existing files.
 
 Updated:
-- ClipKeep shown as Private preview on every page (Products page said Live)
-- About page lists the full product lineup
-- Privacy page: drafting notes removed, AgencyOS privacy policy linked,
-  in-development products covered, last-updated date refreshed
-- RecruitHelper card artwork no longer crops off its logo and heading
+- RPG MasterTool artwork/card on Home and Products
+- RPG logo/title crop fixed
+- RPG card centered when it is the lone item in the final two-column row
+- Existing LinguaFlow and RecruitHelper updates preserved
 - Stylesheet cache version bumped so browsers load the new layout immediately

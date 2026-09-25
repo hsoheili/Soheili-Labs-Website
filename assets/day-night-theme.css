@@ -1,0 +1,154 @@
+/* Automatic day/night presentation.
+   Day: 07:00–18:59 local device time. Night: 19:00–06:59. */
+html { color-scheme: light; }
+html[data-time-theme="night"] { color-scheme: dark; }
+
+body,
+.sitebar,
+.product-card,
+.site-card,
+.value,
+.feature,
+.mobile-menu,
+.mobile-nav summary,
+footer,
+.alt,
+.copy,
+.card-body {
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+html[data-time-theme="night"] {
+  --ink:#eef5ff;
+  --muted:#a9b9cd;
+  --line:#223751;
+  --panel:#081525;
+  --white:#0c192a;
+  --shadow:0 18px 50px rgba(0,0,0,.28);
+}
+
+html[data-time-theme="night"] body {
+  background:#050c16;
+  color:var(--ink);
+}
+
+html[data-time-theme="night"] .sitebar {
+  background:rgba(5,12,22,.88);
+  border-bottom-color:rgba(46,71,100,.72);
+  box-shadow:0 8px 30px rgba(0,0,0,.14);
+}
+
+html[data-time-theme="night"] .brand small { color:#91a3b9; }
+html[data-time-theme="night"] .navlinks a:not(.btn) { color:#dce8f8; }
+html[data-time-theme="night"] .navlinks a:not(.btn):hover { color:#fff; }
+
+html[data-time-theme="night"] .hero {
+  background:
+    radial-gradient(circle at 78% 25%,rgba(42,125,237,.34),transparent 29%),
+    radial-gradient(circle at 18% 85%,rgba(55,79,183,.18),transparent 33%),
+    linear-gradient(135deg,#020713,#071a36 60%,#0a376c);
+}
+
+html[data-time-theme="night"] .page-hero,
+html[data-time-theme="night"] .clip-hero {
+  background:
+    radial-gradient(circle at 76% 22%,rgba(35,118,225,.30),transparent 31%),
+    linear-gradient(135deg,#020713,#071b38 68%,#0a3a73);
+}
+
+html[data-time-theme="night"] .hero p,
+html[data-time-theme="night"] .page-hero p,
+html[data-time-theme="night"] .clip-hero p { color:#c7d9ee; }
+html[data-time-theme="night"] .eyebrow { color:#73b9ff; }
+
+html[data-time-theme="night"] .product-card,
+html[data-time-theme="night"] .site-card,
+html[data-time-theme="night"] .value,
+html[data-time-theme="night"] .feature {
+  background:#0b1727;
+  border-color:#223751;
+  box-shadow:0 14px 38px rgba(0,0,0,.22);
+}
+
+html[data-time-theme="night"] .product-card.featured {
+  border-color:#285e98;
+  box-shadow:0 18px 46px rgba(0,78,176,.18);
+}
+
+html[data-time-theme="night"] .card-body p,
+html[data-time-theme="night"] .section-head p,
+html[data-time-theme="night"] .site-card p,
+html[data-time-theme="night"] .value p,
+html[data-time-theme="night"] .feature p,
+html[data-time-theme="night"] .mini-note,
+html[data-time-theme="night"] .copy p {
+  color:var(--muted);
+}
+
+html[data-time-theme="night"] .alt { background:#081525; }
+html[data-time-theme="night"] section:not(.hero):not(.page-hero):not(.clip-hero) { border-color:#182a40; }
+
+html[data-time-theme="night"] .site-icon {
+  background:#102b49;
+  color:#8fc6ff;
+}
+
+html[data-time-theme="night"] .site-url,
+html[data-time-theme="night"] .text-link { color:#65adff; }
+
+html[data-time-theme="night"] .band {
+  background:
+    radial-gradient(circle at 88% 10%,rgba(52,132,240,.24),transparent 33%),
+    linear-gradient(135deg,#071326,#0a2b55);
+  border:1px solid #1c416c;
+  box-shadow:0 20px 50px rgba(0,0,0,.24);
+}
+
+html[data-time-theme="night"] footer {
+  background:#040a13;
+  border-top-color:#1d3048;
+  color:#94a6ba;
+}
+html[data-time-theme="night"] .footer-brand { color:#eef5ff; }
+html[data-time-theme="night"] .footer-tag { color:#8294a8; }
+html[data-time-theme="night"] .footer-links a:hover { color:#fff; }
+
+html[data-time-theme="night"] .mobile-nav summary,
+html[data-time-theme="night"] .mobile-menu {
+  background:#0b1727;
+  border-color:#29405d;
+}
+html[data-time-theme="night"] .hamburger,
+html[data-time-theme="night"] .hamburger::before,
+html[data-time-theme="night"] .hamburger::after { background:#edf5ff; }
+html[data-time-theme="night"] .mobile-menu { box-shadow:0 18px 42px rgba(0,0,0,.45); }
+html[data-time-theme="night"] .mobile-menu a { color:#e4edf9; }
+html[data-time-theme="night"] .mobile-menu a:hover,
+html[data-time-theme="night"] .mobile-menu a[aria-current="page"] { background:#10243b; }
+
+html[data-time-theme="night"] .privacy-panel {
+  background:#071323;
+  border:1px solid #1e3b5c;
+}
+
+html[data-time-theme="night"] .btn-light {
+  background:#edf5ff;
+  color:#073d7f;
+}
+
+html[data-time-theme="night"] .status.live {
+  background:#0d3529;
+  color:#77e1b0;
+}
+html[data-time-theme="night"] .status.development {
+  background:#3d3212;
+  color:#f3d66d;
+  border-color:#66531d;
+}
+
+/* Keep intentionally light product artwork canvases intact. */
+html[data-time-theme="night"] .recruithelper-art { background:#eaf2fb; }
+
+@media (prefers-reduced-motion: reduce) {
+  body,.sitebar,.product-card,.site-card,.value,.feature,.mobile-menu,.mobile-nav summary,footer,.alt,.copy,.card-body { transition:none; }
+}

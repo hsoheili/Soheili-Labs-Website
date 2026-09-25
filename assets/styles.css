@@ -39,9 +39,9 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 @media(max-width:650px){.recruit-art{padding:14px}.rpg-art img{object-position:center 45%}}
 
 /* 2026-09-08 RPG MasterTool card polish */
-.rpg-card{grid-column:1 / -1;width:calc((100% - 22px)/2);justify-self:center}
+.grid2 > .product-card:last-child:nth-child(odd){grid-column:1 / -1;width:calc((100% - 22px)/2);justify-self:center}
 .rpg-art img{object-position:center top}
-@media(max-width:900px){.rpg-card{grid-column:auto;width:100%;justify-self:stretch}}
+@media(max-width:900px){.grid2 > .product-card:last-child:nth-child(odd){grid-column:auto;width:100%;justify-self:stretch}}
 
 
 /* Responsive navigation */
@@ -96,13 +96,13 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 .status,.status.live,.status.development{border:0}
 .status.live{background:#eaf8f1;color:#157749}
 .status.development{background:#edf6ff;color:#0c67c9}
-.rpg-card{grid-column:1 / -1;width:calc((100% - 24px)/2);justify-self:center;margin-top:0}
+.grid2 > .product-card:last-child:nth-child(odd){grid-column:1 / -1;width:calc((100% - 24px)/2);justify-self:center;margin-top:0}
 @media(max-width:1100px){
   .products-wrap{max-width:1180px}
 }
 @media(max-width:900px){
   .products-wrap.grid2,.products-wrap .grid2{grid-template-columns:1fr}
-  .rpg-card{grid-column:auto;width:100%;justify-self:stretch}
+  .grid2 > .product-card:last-child:nth-child(odd){grid-column:auto;width:100%;justify-self:stretch}
   .home-products-section{padding-top:34px}
   .products-page-grid-section{padding-top:38px}
 }

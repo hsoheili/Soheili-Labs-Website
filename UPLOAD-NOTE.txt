@@ -1,8 +1,8 @@
-Soheili Labs — About and Privacy update (September 25, 2026)
+Soheili Labs — deploys
 
-This repository matches the live site as of Sept 8 plus the changes
-below. Only these two pages changed; uploading just them is enough:
+The site now deploys automatically: merging into main runs
+.github/workflows/deploy.yml, which uploads the changed files to
+soheililabs.com over FTPS. Manual uploads are no longer needed, and
+should be avoided so the repository and the live site stay in step.
 
-- about.html   — lists the full product lineup
-- privacy.html — drafting notes removed, AgencyOS privacy policy linked,
-                 in-development products covered, date refreshed
+Setup and a dry-run option are described at the top of that file.

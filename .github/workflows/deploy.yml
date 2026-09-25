@@ -73,5 +73,6 @@ jobs:
             **/.git*
             **/.git*/**
             .github/**
+            services/**
             UPLOAD-NOTE.txt
             README*

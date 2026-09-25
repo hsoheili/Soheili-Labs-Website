@@ -1,0 +1,33 @@
+[Unit]
+Description=ClipKeep founding license fulfilment (Stripe webhook -> download email)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=clipkeep
+Group=clipkeep
+WorkingDirectory=/opt/soheili-labs-website/services/clipkeep-fulfillment
+EnvironmentFile=/etc/clipkeep-fulfillment.env
+ExecStart=/usr/bin/node server.mjs
+Restart=on-failure
+RestartSec=5
+
+# The service reads its code and the download file, and writes only its
+# fulfilment log under /var/lib/clipkeep-fulfillment.
+StateDirectory=clipkeep-fulfillment
+StateDirectoryMode=0700
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

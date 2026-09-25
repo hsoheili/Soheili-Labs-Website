@@ -1,0 +1,27 @@
+name: ClipKeep fulfilment tests
+
+on:
+  pull_request:
+    paths:
+      - "services/clipkeep-fulfillment/**"
+      - ".github/workflows/clipkeep-fulfillment.yml"
+  push:
+    branches: [main]
+    paths:
+      - "services/clipkeep-fulfillment/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: services/clipkeep-fulfillment
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - run: node --version
+      - run: npm test

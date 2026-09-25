@@ -114,3 +114,6 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 
 /* Status badges size to their label, not the card (the card body is a flex column). */
 .product-card .card-body > .status,.site-card > .status{align-self:flex-start}
+
+/* Founding-program link: its own line under a live product's buttons. */
+.card-actions .founding-link{flex-basis:100%;font-size:.95em}

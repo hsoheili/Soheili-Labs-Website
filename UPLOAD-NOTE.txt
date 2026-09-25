@@ -1,6 +1,6 @@
 Soheili Labs — content and consistency update (September 24, 2026)
 
-Upload every file in this repository except the .zip to the soheililabs.com
+Upload every file in this repository to the soheililabs.com
 document root, replacing existing files. Include the three new images:
 assets/soheili-labs-product-ecosystem.webp, assets/recruithelper-product-card.webp,
 and assets/clipkeep-brand.webp.

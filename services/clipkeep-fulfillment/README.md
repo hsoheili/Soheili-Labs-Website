@@ -10,6 +10,17 @@ Emails each ClipKeep Founding License buyer an expiring download link.
 The service has no dependencies: Node 20.6+ and the standard library only. It listens on `127.0.0.1:3202` behind nginx.
 This directory is excluded from the soheililabs.com FTP deploy, and it runs on the VPS.
 
+## Pre-orders
+
+While there is no file at `DOWNLOAD_FILE`, ClipKeep is on pre-order. Each buyer gets a "pre-order confirmed" email, and the sale is recorded as `pending`. Once the signed build is in place, email every waiting buyer their download link:
+
+    cd /opt/soheili-labs-website/services/clipkeep-fulfillment
+    sudo -u clipkeep node --env-file=/etc/clipkeep-fulfillment.env send-pending.mjs          # dry run: lists who would be emailed
+    sudo -u clipkeep node --env-file=/etc/clipkeep-fulfillment.env send-pending.mjs --send   # sends
+
+After that, new buyers get the download straight away. It is safe to run again: buyers who were already sent a link are skipped.
+Refund anyone who asks before their download arrives.
+
 ## Tests
 
     npm test

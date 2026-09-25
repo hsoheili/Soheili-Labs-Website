@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { verifyStripeSignature, purchaseFromEvent, makeDownloadToken, readDownloadToken, downloadEmail } from "./lib.mjs";
+import { verifyStripeSignature, purchaseFromEvent, makeDownloadToken, readDownloadToken, downloadEmail, preorderEmail } from "./lib.mjs";
 
 const MAX_BODY = 1024 * 1024;
 
@@ -31,16 +31,30 @@ function linkProblemPage(supportEmail) {
 
 // deps: { config, store, mailer, log }. Kept injectable so tests run without
 // the network or a real file system layout.
+export function downloadMessage(config, purchase) {
+  const token = makeDownloadToken(purchase.sessionId, config.tokenSecret, { days: config.linkDays });
+  const downloadUrl = `${config.publicBaseUrl}/download?token=${token}`;
+  return downloadEmail({ name: purchase.name, downloadUrl, days: config.linkDays, supportEmail: config.supportEmail });
+}
+
+export function releaseAvailable(config) {
+  try { return fs.statSync(config.downloadFile).isFile(); } catch { return false; }
+}
+
+// deps: { config, store, mailer, log }. Kept injectable so tests run without
+// the network or a real file system layout.
 export function createHandler({ config, store, mailer, log = console }) {
+  // While no build is on the server, ClipKeep is on pre-order: the buyer gets a
+  // confirmation now and the download email later, from send-pending.mjs.
   async function fulfil(purchase) {
-    const token = makeDownloadToken(purchase.sessionId, config.tokenSecret, { days: config.linkDays });
-    const downloadUrl = `${config.publicBaseUrl}/download?token=${token}`;
-    const message = downloadEmail({ name: purchase.name, downloadUrl, days: config.linkDays, supportEmail: config.supportEmail });
+    const released = releaseAvailable(config);
+    const message = released ? downloadMessage(config, purchase) : preorderEmail({ name: purchase.name, supportEmail: config.supportEmail });
     await mailer({ to: purchase.email, ...message });
-    store.add({ sessionId: purchase.sessionId, email: purchase.email });
-    log.info(`fulfilled ${purchase.sessionId}`);
+    store.add({ sessionId: purchase.sessionId, email: purchase.email, name: purchase.name, status: released ? "sent" : "pending" });
+    log.info(`${released ? "fulfilled" : "pre-order recorded"} ${purchase.sessionId}`);
     if (config.notifyEmail) {
-      mailer({ to: config.notifyEmail, subject: "New ClipKeep founding license", text: `${purchase.email} bought a ClipKeep Founding License (${purchase.sessionId}). The download email was sent.` })
+      const what = released ? "The download email was sent." : "It is a pre-order; the download email is owed when the release is on the server.";
+      mailer({ to: config.notifyEmail, subject: "New ClipKeep founding license", text: `${purchase.email} bought a ClipKeep Founding License (${purchase.sessionId}). ${what}` })
         .catch((error) => log.error(`owner notification failed: ${error.message}`));
     }
   }

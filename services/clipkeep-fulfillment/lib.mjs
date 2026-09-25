@@ -89,3 +89,26 @@ export function downloadEmail({ name, downloadUrl, days, supportEmail }) {
 <p>Soheili Labs</p>`;
   return { subject: "Your ClipKeep download", text, html };
 }
+
+export function preorderEmail({ name, supportEmail }) {
+  const greeting = name ? `Hi ${name.split(/\s+/)[0]},` : "Hi,";
+  const text = [
+    greeting,
+    "",
+    "Thank you for pre-ordering a ClipKeep Founding License. You're one of ClipKeep's founders.",
+    "",
+    "ClipKeep is being prepared as a signed, Apple-notarized release so it installs cleanly without security warnings.",
+    "As soon as it's ready, your download link is emailed to this address automatically.",
+    "Your founding license includes every future ClipKeep update.",
+    "",
+    `Changed your mind? Reply or write to ${supportEmail} for a full refund any time before your download arrives.`,
+    "",
+    "Soheili Labs",
+  ].join("\n");
+  const html = `<p>${escapeHtml(greeting)}</p>
+<p>Thank you for pre-ordering a ClipKeep Founding License. You&rsquo;re one of ClipKeep&rsquo;s founders.</p>
+<p>ClipKeep is being prepared as a signed, Apple-notarized release so it installs cleanly without security warnings. As soon as it&rsquo;s ready, your download link is emailed to this address automatically. Your founding license includes every future ClipKeep update.</p>
+<p>Changed your mind? Write to <a href="mailto:${escapeHtml(supportEmail)}">${escapeHtml(supportEmail)}</a> for a full refund any time before your download arrives.</p>
+<p>Soheili Labs</p>`;
+  return { subject: "Your ClipKeep pre-order is confirmed", text, html };
+}

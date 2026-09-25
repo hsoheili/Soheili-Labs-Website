@@ -11,6 +11,10 @@ const required = [
 export function loadConfig(env = process.env) {
   const missing = required.filter((name) => !env[name]?.trim());
   if (missing.length) throw new Error(`Missing required settings: ${missing.join(", ")}`);
+  // The env template ships with replace_me values, which are not empty and
+  // would otherwise let the service start with settings that cannot work.
+  const placeholders = required.filter((name) => /replace_me|replace_with/i.test(env[name]));
+  if (placeholders.length) throw new Error(`Still set to the template placeholder: ${placeholders.join(", ")}`);
   if (env.DOWNLOAD_TOKEN_SECRET.trim().length < 32) throw new Error("DOWNLOAD_TOKEN_SECRET must be at least 32 characters.");
   const days = Number(env.DOWNLOAD_LINK_DAYS || 14);
   return {

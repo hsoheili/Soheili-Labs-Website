@@ -89,3 +89,27 @@ test("a bad or expired download token gets the help page, not the file", async (
     assert.equal((await fetch(`${base}/anything`)).status, 404);
   });
 });
+
+test("with no build on the server, a sale is a pre-order: confirmation now, download later", async () => {
+  const { downloadMessage } = await import("../app.mjs");
+  const missing = { ...config, downloadFile: path.join(dir, "not-there.dmg") };
+  const sent = [];
+  const store = new SentStore(path.join(dir, "state5"));
+  const server = http.createServer(createHandler({ config: missing, store, log: quiet, mailer: async (m) => { sent.push(m); } }));
+  await new Promise((r) => server.listen(0, "127.0.0.1", r));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  try {
+    assert.equal((await signedPost(base, paidEvent("cs_pre"))).status, 200);
+    assert.equal((await signedPost(base, paidEvent("cs_pre"))).status, 200);
+  } finally { server.close(); }
+  assert.equal(sent.length, 1);
+  assert.match(sent[0].subject, /pre-order/i);
+  assert.doesNotMatch(sent[0].text, /download\?token=/);
+
+  const reopened = new SentStore(path.join(dir, "state5"));
+  assert.deepEqual(reopened.pending().map((p) => p.sessionId), ["cs_pre"]);
+  const message = downloadMessage(config, reopened.pending()[0]);
+  assert.match(message.text, /https:\/\/downloads\.example\/download\?token=/);
+  reopened.add({ ...reopened.pending()[0], status: "sent" });
+  assert.equal(new SentStore(path.join(dir, "state5")).pending().length, 0);
+});

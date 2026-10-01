@@ -120,4 +120,4 @@ footer{padding:44px 0 54px;border-top:1px solid var(--line);color:#6a7789;font-s
 .price-note{margin:.25rem 0 .5rem;font-size:.95em}.price-note strong{font-size:1.1em}
 .ai-art{background:#061a3a;display:flex;align-items:center;justify-content:center}.ai-art img{object-fit:cover;object-position:center}
 
-.brand-logo{width:40px;height:40px;flex:none;display:block;border-radius:11px;filter:drop-shadow(0 6px 14px rgba(8,120,255,.22))}
+.brand-logo{width:40px;height:40px;flex:none;display:block;border-radius:9px;box-shadow:0 8px 22px rgba(8,120,255,.26)}

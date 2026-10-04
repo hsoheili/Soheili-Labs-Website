@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+<title id="title">Fork N Palate</title>
+<rect width="128" height="128" rx="28" fill="#F7F3EA"/>
+<circle cx="64" cy="64" r="49" fill="none" stroke="#263126" stroke-width="3"/>
+<path d="M43 31v31M51 31v31M59 31v31M43 45h16M51 62v35" fill="none" stroke="#263126" stroke-width="4" stroke-linecap="round"/>
+<path d="M66 68c19-24 39-19 39-19-2 23-17 35-39 31 9-8 18-14 29-20" fill="none" stroke="#708468" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

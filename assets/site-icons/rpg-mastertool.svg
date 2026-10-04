@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">RPG MasterTool mark</title>
+  <desc id="desc">A faceted twenty-sided die inspired emblem for RPG MasterTool by Soheili Labs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="64" x2="438" y2="456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#171a25"/>
+      <stop offset="1" stop-color="#0b0d12"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="120" y1="88" x2="394" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d6aa62"/>
+      <stop offset="0.48" stop-color="#c49a54"/>
+      <stop offset="1" stop-color="#8f72ef"/>
+    </linearGradient>
+    <linearGradient id="rune" x1="188" y1="174" x2="333" y2="337" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f5efe3"/>
+      <stop offset="1" stop-color="#b7a5ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <path d="M256 70 398 153l38 159-110 130H186L76 312l38-159L256 70Z" fill="#11141c" stroke="url(#edge)" stroke-width="20" stroke-linejoin="round"/>
+  <path d="M114 153 256 228 398 153M76 312l180-84 180 84M186 442l70-214 70 214M114 153l72 289M398 153l-72 289" fill="none" stroke="#66558f" stroke-opacity=".68" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="228" r="18" fill="#c49a54"/>
+  <path d="M204 319V190l52 43 52-43v129" fill="none" stroke="url(#rune)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M203 319h106" stroke="#c49a54" stroke-width="18" stroke-linecap="round"/>
+</svg>

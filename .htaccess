@@ -6,30 +6,3 @@ RewriteRule ^index\.html$ / [R=301,L]
 # The Live Interpreter page was retired; the product is LinguaFlow.
 # NE keeps the "#" from being escaped so the browser lands on its card.
 RewriteRule ^interpreter\.html$ /products.html#linguaflow [R=301,L,NE]
-
-# BEGIN Redirect Rehearsal self-test
-# Exact-match rules under /rr-test/ only. Delete this block and the
-# rr-test/ folder to remove the test.
-# correct-301: OK, one permanent redirect to the right page
-RewriteRule ^rr-test/ok$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]
-# correct-308: OK, 308 is permanent too
-RewriteRule ^rr-test/ok-308$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=308,L]
-# slash-www-case: OK, expected written as http://www.HOST/... without the slash still matches
-RewriteRule ^rr-test/slash$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]
-# plain-404: BROKEN, no redirect at all
-RewriteRule ^rr-test/missing$ - [R=404,L]
-# wrong-page: WRONG_DESTINATION, redirects to a real page, but not the planned one
-RewriteRule ^rr-test/wrong$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-b/ [R=301,L]
-# to-homepage: SOFT_404, dumping an old page on the homepage is reported as a soft 404
-RewriteRule ^rr-test/to-home$ %{REQUEST_SCHEME}://%{HTTP_HOST}/ [R=301,L]
-# two-hop-chain: CHAIN, two permanent redirects in a row
-RewriteRule ^rr-test/chain$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/chain-2 [R=301,L]
-# loop: LOOP, loop-a and loop-b point at each other
-RewriteRule ^rr-test/loop-a$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/loop-b [R=301,L]
-# temporary-302: was 302 (TEMP_REDIRECT); fixed to 301, should now be OK
-RewriteRule ^rr-test/temp$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]
-# redirect-to-404: BROKEN, redirects into the 404 above
-RewriteRule ^rr-test/to-404$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/missing [R=301,L]
-RewriteRule ^rr-test/chain-2$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]
-RewriteRule ^rr-test/loop-b$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/loop-a [R=301,L]
-# END Redirect Rehearsal self-test

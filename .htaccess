@@ -26,8 +26,8 @@ RewriteRule ^rr-test/to-home$ %{REQUEST_SCHEME}://%{HTTP_HOST}/ [R=301,L]
 RewriteRule ^rr-test/chain$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/chain-2 [R=301,L]
 # loop: LOOP, loop-a and loop-b point at each other
 RewriteRule ^rr-test/loop-a$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/loop-b [R=301,L]
-# temporary-302: TEMP_REDIRECT, right page, temporary redirect (step 6 fixes this one)
-RewriteRule ^rr-test/temp$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=302,L]
+# temporary-302: was 302 (TEMP_REDIRECT); fixed to 301, should now be OK
+RewriteRule ^rr-test/temp$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]
 # redirect-to-404: BROKEN, redirects into the 404 above
 RewriteRule ^rr-test/to-404$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/missing [R=301,L]
 RewriteRule ^rr-test/chain-2$ %{REQUEST_SCHEME}://%{HTTP_HOST}/rr-test/target-a/ [R=301,L]

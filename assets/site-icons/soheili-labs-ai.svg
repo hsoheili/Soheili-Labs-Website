@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Soheili Labs AI">
+  <defs>
+    <linearGradient id="sheet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ea8fe"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <!-- A tile, because a browser tab puts this on whatever colour it likes.
+       The sheet is kept as large as the tile's corners allow: at the 16 real
+       pixels of a tab, every pixel spent on margin is a pixel the two bars
+       do not get. Geometry is app/Logo.tsx scaled 2.5x about (9.5, 7). -->
+  <rect width="64" height="64" rx="14" fill="#0b0d12"/>
+  <rect x="9.5" y="7" width="45" height="50" rx="11.25" fill="url(#sheet)"/>
+  <g fill="#0b0d12">
+    <rect x="18.5" y="21" width="27" height="6.5" rx="3.25"/>
+    <rect x="18.5" y="34.5" width="17" height="6.5" rx="3.25"/>
+  </g>
+</svg>
